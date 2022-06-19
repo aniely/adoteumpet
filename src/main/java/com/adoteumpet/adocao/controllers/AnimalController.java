@@ -19,7 +19,7 @@ public class AnimalController {
 	@Autowired
 	private AnimalService service;
 
-	@GetMapping
+	@GetMapping("/listar")
 	public ResponseEntity<List<AnimalDTO>> retornaAnimais() {
 		return ResponseEntity.ok().body(service.buscarAnimaisDisponiveis());
 	}

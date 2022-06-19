@@ -14,7 +14,7 @@ import com.adoteumpet.adocao.repositories.AnimalRepository;
 public class AnimalService  {
 
  	private  AnimalMapper mapper;
-	private final AnimalRepository repository;
+	private  AnimalRepository repository;
 
 
 	@Autowired

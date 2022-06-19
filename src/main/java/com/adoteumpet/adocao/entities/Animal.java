@@ -77,6 +77,11 @@ public class Animal implements Serializable {
 	@OneToMany(mappedBy="animal", fetch = FetchType.EAGER)
 	private List<Imagem> imagens = new ArrayList<>();
 
+	@ManyToOne
+	@JoinColumn(name = "id_cidade", nullable = false)
+	private Cidade cidade;
+
+	
 	public Long getId() {
 		return id;
 	}
@@ -173,5 +178,14 @@ public class Animal implements Serializable {
 	public void setImagens(List<Imagem> imagens) {
 		this.imagens = imagens;
 	}
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
  
+	
 }

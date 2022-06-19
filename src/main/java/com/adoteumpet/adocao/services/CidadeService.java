@@ -1,0 +1,23 @@
+package com.adoteumpet.adocao.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.adoteumpet.adocao.mappers.CidadeMapper;
+import com.adoteumpet.adocao.repositories.CidadeRepository;
+
+@Service
+public class CidadeService  {
+
+	private CidadeMapper mapper;
+	private CidadeRepository repository;
+
+
+	@Autowired
+	public CidadeService(CidadeRepository repository,CidadeMapper mapper) {
+		this.repository = repository;
+		this.mapper = mapper;
+	}
+ 
+
+}

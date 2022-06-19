@@ -23,6 +23,7 @@ public class AnimalDTO implements Serializable {
 	private Raca raca;
 	private String cor;
 	private String descricao;
+	private CidadeDTO cidade;
 
 	public AnimalDTO() {
 	}
@@ -114,7 +115,13 @@ public class AnimalDTO implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
 
+	public CidadeDTO getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(CidadeDTO cidade) {
+		this.cidade = cidade;
+	}
+	
 }
