@@ -17,7 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.adoteumpet.adocao.enums.PorteEnum;
@@ -34,19 +33,18 @@ public class Animal implements Serializable {
 	
     public static final String TABLE_NAME = "tb_animal";
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "gen_" + TABLE_NAME)
-	@SequenceGenerator(name = "gen_" + TABLE_NAME, sequenceName = "sq_" + TABLE_NAME, allocationSize = 1)
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@Column(name = "nome", nullable = false)
 	private String nome;
 	
 	@Column(name = "data_inclusao", nullable = false)
-	private LocalDateTime data_inclusao;
+	private LocalDateTime dataInclusao;
 	
 	@Column(name = "data_nascimento", nullable = false)
-	private LocalDateTime data_nascimento;
+	private LocalDateTime dataNascimento;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "porte", nullable = false)
@@ -81,7 +79,15 @@ public class Animal implements Serializable {
 	@JoinColumn(name = "id_cidade", nullable = false)
 	private Cidade cidade;
 
+	@ManyToOne
+	@JoinColumn(name = "id_tutor", nullable = false)
+	private Usuario tutor;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_adotado_por")
+	private Usuario adotadoPor;
+
+		
 	public Long getId() {
 		return id;
 	}
@@ -98,22 +104,21 @@ public class Animal implements Serializable {
 		this.nome = nome;
 	}
 
-	public LocalDateTime getData_inclusao() {
-		return data_inclusao;
+	public LocalDateTime getDataInclusao() {
+		return dataInclusao;
 	}
 
-	public void setData_inclusao(LocalDateTime data_inclusao) {
-		this.data_inclusao = data_inclusao;
+	public void setDataInclusao(LocalDateTime dataInclusao) {
+		this.dataInclusao = dataInclusao;
 	}
 
-	public LocalDateTime getData_nascimento() {
-		return data_nascimento;
+	public LocalDateTime getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setData_nascimento(LocalDateTime data_nascimento) {
-		this.data_nascimento = data_nascimento;
+	public void setDataNascimento(LocalDateTime dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
-
 
 	public SexoEnum getGenero() {
 		return genero;
@@ -185,6 +190,22 @@ public class Animal implements Serializable {
 
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
+	}
+
+	public Usuario getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Usuario tutor) {
+		this.tutor = tutor;
+	}
+
+	public Usuario getAdotadoPor() {
+		return adotadoPor;
+	}
+
+	public void setAdotadoPor(Usuario adotadoPor) {
+		this.adotadoPor = adotadoPor;
 	}
  
 	

@@ -16,7 +16,8 @@ public class RacaDTO implements Serializable {
 	@NotBlank(message = "Nome não pode ser em branco")
 	@NotEmpty(message = "Nome não pode vazio")
 	private String nome;
-
+	 
+	private EspecieDTO especie;
 
 	public RacaDTO() {
 	}
@@ -29,4 +30,21 @@ public class RacaDTO implements Serializable {
 		this.id = id;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public EspecieDTO getEspecie() {
+		return especie;
+	}
+
+	public void setEspecie(EspecieDTO especie) {
+		this.especie = especie;
+	}
+
+	
 }

@@ -1,0 +1,16 @@
+INSERT INTO public.tb_especie(1, "Gato");
+INSERT INTO public.tb_especie(2, "Cachorro");
+
+INSERT INTO public.tb_raca(1, "Raça não definida", 1);
+INSERT INTO public.tb_raca(2, "Siamês", 1);
+INSERT INTO public.tb_raca(3, "Poodle", 2);
+INSERT INTO public.tb_raca(4, "Yorkshire", 2);
+INSERT INTO public.tb_raca(5, "Raça não definida", 2);
+
+
+INSERT INTO public.tb_estado(1, "Rio de Janeiro", "RJ");
+INSERT INTO public.tb_estado(2, "São Paulo", "SP");
+
+INSERT INTO public.tb_cidade(1, "Campos dos Goytacazes", 1);
+INSERT INTO public.tb_cidade(2, "São João da Barra", 1);
+INSERT INTO public.tb_cidade(3, "Ubatuba", 2);

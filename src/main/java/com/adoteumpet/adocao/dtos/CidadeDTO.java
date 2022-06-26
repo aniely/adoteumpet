@@ -8,7 +8,7 @@ public class CidadeDTO implements Serializable {
 
 	private Long id;
 	private String nome;
-	private EstadoDTO estado;
+	//private EstadoDTO estado;
 
 
 	public CidadeDTO() {
@@ -30,13 +30,13 @@ public class CidadeDTO implements Serializable {
 		this.nome = nome;
 	}
 
-	public EstadoDTO getEstado() {
+	/*public EstadoDTO getEstado() {
 		return estado;
 	}
 
 	public void setEstado(EstadoDTO estado) {
 		this.estado = estado;
-	}
+	}*/
 	
 	
 

@@ -1,41 +1,30 @@
 package com.adoteumpet.adocao.dtos;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 import com.adoteumpet.adocao.enums.PorteEnum;
 import com.adoteumpet.adocao.enums.SexoEnum;
 import com.adoteumpet.adocao.enums.StatusEnum;
 
-public class AnimalDTO implements Serializable {
+public class CreateAnimalDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
 	private String nome;
-	private LocalDateTime dataInclusao;
-	private LocalDateTime dataNascimento;
+	//private LocalDateTime data_nascimento;
 	private PorteEnum porte;
 	private SexoEnum genero;
 	private StatusEnum status;
 	private Integer idade;
-	private RacaDTO raca;
+	private Long idRaca;
 	private String cor;
 	private String descricao;
-	private CidadeDTO cidade;
-	private UsuarioDTO tutor;
-	private UsuarioDTO adotadoPor;
+	private Long idCidade;
 
-	public AnimalDTO() {
+	public CreateAnimalDTO() {
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+ 
 
 	public String getNome() {
 		return nome;
@@ -45,24 +34,13 @@ public class AnimalDTO implements Serializable {
 		this.nome = nome;
 	}
 
-	 
-  
-
-	public LocalDateTime getDataInclusao() {
-		return dataInclusao;
+/*	public LocalDateTime getData_nascimento() {
+		return data_nascimento;
 	}
 
-	public void setDataInclusao(LocalDateTime dataInclusao) {
-		this.dataInclusao = dataInclusao;
-	}
-
-	public LocalDateTime getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(LocalDateTime dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+	public void setData_nascimento(LocalDateTime data_nascimento) {
+		this.data_nascimento = data_nascimento;
+	} */
 
 	public PorteEnum getPorte() {
 		return porte;
@@ -96,12 +74,20 @@ public class AnimalDTO implements Serializable {
 		this.idade = idade;
 	}
 
-	public RacaDTO getRaca() {
-		return raca;
+	public Long getIdRaca() {
+		return idRaca;
 	}
 
-	public void setRaca(RacaDTO raca) {
-		this.raca = raca;
+	public void setIdRaca(Long idRaca) {
+		this.idRaca = idRaca;
+	}
+
+	public Long getIdCidade() {
+		return idCidade;
+	}
+
+	public void setIdCidade(Long idCidade) {
+		this.idCidade = idCidade;
 	}
 
 	public String getCor() {
@@ -120,28 +106,4 @@ public class AnimalDTO implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public CidadeDTO getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(CidadeDTO cidade) {
-		this.cidade = cidade;
-	}
-
-	public UsuarioDTO getTutor() {
-		return tutor;
-	}
-
-	public void setTutor(UsuarioDTO tutor) {
-		this.tutor = tutor;
-	}
-
-	public UsuarioDTO getAdotadoPor() {
-		return adotadoPor;
-	}
-
-	public void setAdotadoPor(UsuarioDTO adotadoPor) {
-		this.adotadoPor = adotadoPor;
-	}
-	
 }

@@ -10,7 +10,10 @@ import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import com.adoteumpet.adocao.dtos.AnimalDTO;
+import com.adoteumpet.adocao.dtos.CreateAnimalDTO;
 import com.adoteumpet.adocao.entities.Animal;
+import com.adoteumpet.adocao.entities.Cidade;
+import com.adoteumpet.adocao.entities.Raca;
 
 @Mapper(componentModel="spring")
 public interface AnimalMapper {
@@ -24,4 +27,5 @@ public interface AnimalMapper {
 	public AnimalDTO toDTO(Animal entity);
 
     public List<AnimalDTO> toDTOList(List<Animal> entity);
+    
 }

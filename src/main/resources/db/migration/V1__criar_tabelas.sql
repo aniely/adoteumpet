@@ -60,17 +60,16 @@ CREATE TABLE IF NOT EXISTS tb_animal
     id bigint NOT NULL,
     nome varchar(255) NOT NULL,
     data_inclusao timestamp without time zone,
-	data_nascimento timestamp without time zone,
+    data_nascimento timestamp without time zone,
     porte varchar(255) NOT NULL,
-	genero varchar(1) NOT NULL,
+    genero varchar(1) NOT NULL,
     status varchar(255) NOT NULL,
-	idade integer NOT NULL,
-	id_raca bigint NOT NULL,
-	cor varchar(255) NOT NULL,
+    id_raca bigint NOT NULL,
+    cor varchar(255) NOT NULL,
     descricao text NOT NULL,
-	id_tutor bigint NOT NULL,
-	id_adotado_por bigint,
-	id_cidade bigint NOT NULL,
+    id_tutor bigint NOT NULL,
+    id_adotado_por bigint,
+    id_cidade bigint NOT NULL,
 	
     CONSTRAINT tb_animal_pkey PRIMARY KEY (id),
 	CONSTRAINT tb_animal_tb_raca_fkey FOREIGN KEY (id_raca) REFERENCES tb_raca (id),
@@ -104,3 +103,22 @@ CREATE SEQUENCE IF NOT EXISTS tb_usuario INCREMENT 1 START 3 MINVALUE 1 MAXVALUE
 
 
 CREATE SEQUENCE IF NOT EXISTS hibernate_sequence INCREMENT 1  MINVALUE 1  MAXVALUE 9223372036854775807 START 1 CACHE 1;
+
+INSERT INTO public.tb_especie(1, "Gato");
+INSERT INTO public.tb_especie(2, "Cachorro");
+
+INSERT INTO public.tb_raca(1, "Raça não definida", 1);
+INSERT INTO public.tb_raca(2, "Siamês", 1);
+INSERT INTO public.tb_raca(3, "Poodle", 2);
+INSERT INTO public.tb_raca(4, "Yorkshire", 2);
+INSERT INTO public.tb_raca(5, "Raça não definida", 2);
+
+
+INSERT INTO public.tb_estado(1, "Rio de Janeiro", "RJ");
+INSERT INTO public.tb_estado(2, "São Paulo", "SP");
+
+INSERT INTO public.tb_cidade(1, "Campos dos Goytacazes", 1);
+INSERT INTO public.tb_cidade(2, "São João da Barra", 1);
+INSERT INTO public.tb_cidade(3, "Ubatuba", 2);
+
+
