@@ -1,8 +1,11 @@
 package com.adoteumpet.adocao.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.adoteumpet.adocao.dtos.CidadeDTO;
 import com.adoteumpet.adocao.mappers.CidadeMapper;
 import com.adoteumpet.adocao.repositories.CidadeRepository;
 
@@ -19,5 +22,7 @@ public class CidadeService  {
 		this.mapper = mapper;
 	}
  
-
+	public List<CidadeDTO> buscarCidades(){
+		return mapper.toDTOList(repository.findAll());
+	}
 }

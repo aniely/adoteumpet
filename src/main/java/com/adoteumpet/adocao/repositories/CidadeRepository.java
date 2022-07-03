@@ -8,7 +8,7 @@ import com.adoteumpet.adocao.entities.Cidade;
 
 public interface CidadeRepository extends JpaRepository<Cidade, Long> {
 	
-	 Optional<Cidade> findById(Long id);
-
+	 	 
+	Optional<Cidade> findById(Long id);
 }
 	 

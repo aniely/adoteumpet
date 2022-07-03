@@ -18,7 +18,6 @@ public class AnimalDTO implements Serializable {
 	private PorteEnum porte;
 	private SexoEnum genero;
 	private StatusEnum status;
-	private Integer idade;
 	private RacaDTO raca;
 	private String cor;
 	private String descricao;
@@ -88,13 +87,6 @@ public class AnimalDTO implements Serializable {
 		this.status = status;
 	}
 
-	public Integer getIdade() {
-		return idade;
-	}
-
-	public void setIdade(Integer idade) {
-		this.idade = idade;
-	}
 
 	public RacaDTO getRaca() {
 		return raca;

@@ -11,5 +11,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
 	
 	List<Animal> findByStatus(StatusEnum status);
 
-}
+	
+	}
+ 
 	 

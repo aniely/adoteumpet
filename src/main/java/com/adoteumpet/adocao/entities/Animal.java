@@ -57,10 +57,7 @@ public class Animal implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status", nullable = false)
 	private StatusEnum status;
-
-	@Column(name = "idade", nullable = false)
-	private Integer idade;
-	
+ 
 	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "id_raca", nullable = false)
 	private Raca raca;
@@ -144,13 +141,6 @@ public class Animal implements Serializable {
 		this.status = status;
 	}
 
-	public Integer getIdade() {
-		return idade;
-	}
-
-	public void setIdade(Integer idade) {
-		this.idade = idade;
-	}
 
 	public Raca getRaca() {
 		return raca;

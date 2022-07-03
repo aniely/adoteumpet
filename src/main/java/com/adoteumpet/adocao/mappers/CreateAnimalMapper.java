@@ -36,7 +36,6 @@ import com.adoteumpet.adocao.repositories.RacaRepository;
         entity.setDataInclusao(LocalDateTime.now());
         entity.setDescricao(dto.getDescricao());
         entity.setGenero(dto.getGenero());
-        entity.setIdade(dto.getIdade());
         entity.setNome( dto.getNome() );
         entity.setPorte(dto.getPorte());
         entity.setStatus(dto.getStatus());
