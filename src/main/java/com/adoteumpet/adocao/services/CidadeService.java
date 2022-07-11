@@ -25,4 +25,8 @@ public class CidadeService  {
 	public List<CidadeDTO> buscarCidades(){
 		return mapper.toDTOList(repository.findAll());
 	}
+
+	public List<CidadeDTO>  buscarCidadesPorEstado(Long idEstado) {
+		return mapper.toDTOList(repository.findByEstado_id(idEstado));
+	}
 }

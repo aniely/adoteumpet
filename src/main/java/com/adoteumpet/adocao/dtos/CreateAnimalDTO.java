@@ -11,11 +11,9 @@ public class CreateAnimalDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String nome;
-	//private LocalDateTime data_nascimento;
 	private PorteEnum porte;
 	private SexoEnum genero;
 	private StatusEnum status;
-	private Integer idade;
 	private Long idRaca;
 	private String cor;
 	private String descricao;
@@ -34,13 +32,6 @@ public class CreateAnimalDTO implements Serializable {
 		this.nome = nome;
 	}
 
-/*	public LocalDateTime getData_nascimento() {
-		return data_nascimento;
-	}
-
-	public void setData_nascimento(LocalDateTime data_nascimento) {
-		this.data_nascimento = data_nascimento;
-	} */
 
 	public PorteEnum getPorte() {
 		return porte;
@@ -66,13 +57,6 @@ public class CreateAnimalDTO implements Serializable {
 		this.status = status;
 	}
 
-	public Integer getIdade() {
-		return idade;
-	}
-
-	public void setIdade(Integer idade) {
-		this.idade = idade;
-	}
 
 	public Long getIdRaca() {
 		return idRaca;

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adoteumpet.adocao.dtos.CidadeDTO;
@@ -21,8 +22,13 @@ public class CidadeController {
 
 	@GetMapping
 	public ResponseEntity<List<CidadeDTO>> retornaCidades() {
-		System.out.println(service.buscarCidades());
 		return ResponseEntity.ok().body(service.buscarCidades());
+		
+	}
+	
+	@GetMapping("/pesquisarPorEstado")
+	public ResponseEntity<List<CidadeDTO>> retornaCidadesPorEstado(@RequestParam(required = true) Long idEstado) {
+		return ResponseEntity.ok().body(service.buscarCidadesPorEstado(idEstado));
 		
 	}
 
