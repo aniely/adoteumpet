@@ -10,6 +10,7 @@ import com.adoteumpet.adocao.dtos.CreateAnimalDTO;
 import com.adoteumpet.adocao.entities.Animal;
 import com.adoteumpet.adocao.entities.Cidade;
 import com.adoteumpet.adocao.entities.Raca;
+import com.adoteumpet.adocao.enums.StatusEnum;
 import com.adoteumpet.adocao.repositories.CidadeRepository;
 import com.adoteumpet.adocao.repositories.RacaRepository;
 @Mapper(componentModel="spring")
@@ -38,7 +39,7 @@ import com.adoteumpet.adocao.repositories.RacaRepository;
         entity.setGenero(dto.getGenero());
         entity.setNome( dto.getNome() );
         entity.setPorte(dto.getPorte());
-        entity.setStatus(dto.getStatus());
+        entity.setStatus(StatusEnum.Disponível);
         entity.setDataNascimento(LocalDateTime.now());
         return entity;
     }

@@ -27,5 +27,9 @@ public class RacaService {
 	public List<RacaDTO> buscarRacas(){
 		return mapper.toDTOList(repository.findAll());
 	}
+
+	public List<RacaDTO> buscarRacaPorEspecie(Long idEspecie) {
+		return mapper.toDTOList(repository.findByEspecie_id(idEspecie));
+	}
 	 
 }
