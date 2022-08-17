@@ -30,11 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private static final String[] PUBLIC_MATCHERS = {
 		 "/usuarios/cadastrar",
+		 "/estados",
 		 "/especies",
 		 "/cidades/**",
-		 "/animais/**",
-		 "/estados/**",
+		 "/animais",
 		 "/racas/**",
+		 "/animais/pesquisar",
 		 "auth/forgot"
 	};
 	

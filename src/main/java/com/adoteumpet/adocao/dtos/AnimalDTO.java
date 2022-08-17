@@ -2,7 +2,9 @@ package com.adoteumpet.adocao.dtos;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
+import com.adoteumpet.adocao.entities.Imagem;
 import com.adoteumpet.adocao.enums.PorteEnum;
 import com.adoteumpet.adocao.enums.SexoEnum;
 import com.adoteumpet.adocao.enums.StatusEnum;
@@ -24,6 +26,7 @@ public class AnimalDTO implements Serializable {
 	private CidadeDTO cidade;
 	private UsuarioDTO tutor;
 	private UsuarioDTO adotadoPor;
+	private List<Imagem> imagens;
 
 	public AnimalDTO() {
 	}
@@ -135,5 +138,15 @@ public class AnimalDTO implements Serializable {
 	public void setAdotadoPor(UsuarioDTO adotadoPor) {
 		this.adotadoPor = adotadoPor;
 	}
+
+	public List<Imagem> getImagens() {
+		return imagens;
+	}
+
+	public void setImagens(List<Imagem> imagens) {
+		this.imagens = imagens;
+	}
+	
+	
 	
 }

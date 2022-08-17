@@ -1,8 +1,6 @@
 package com.adoteumpet.adocao.services;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +9,11 @@ import org.springframework.stereotype.Service;
 import com.adoteumpet.adocao.dtos.AnimalDTO;
 import com.adoteumpet.adocao.dtos.CreateAnimalDTO;
 import com.adoteumpet.adocao.entities.Animal;
-import com.adoteumpet.adocao.entities.Cidade;
-import com.adoteumpet.adocao.entities.Especie;
 import com.adoteumpet.adocao.enums.SexoEnum;
 import com.adoteumpet.adocao.enums.StatusEnum;
 import com.adoteumpet.adocao.mappers.AnimalMapper;
 import com.adoteumpet.adocao.mappers.CreateAnimalMapper;
 import com.adoteumpet.adocao.repositories.AnimalRepository;
-import com.adoteumpet.adocao.repositories.CidadeRepository;
-import com.adoteumpet.adocao.repositories.EspecieRepository;
 import com.adoteumpet.adocao.repositories.UsuarioRepository;
 
 @Service
@@ -29,19 +23,16 @@ public class AnimalService  {
  	private  CreateAnimalMapper createAnimalMapper;
 	private  AnimalRepository repository;
 	private  UsuarioRepository usuarioRepository;
-	private CidadeRepository cidadeRepository;
-	private EspecieRepository especieRepository;
+	
 
 
 	@Autowired
-	public AnimalService(AnimalRepository repository, AnimalMapper mapper, UsuarioRepository usuarioRepository,  CreateAnimalMapper createAnimalMapper, CidadeRepository cidadeRepository, EspecieRepository especieRepository) {
+	public AnimalService(AnimalRepository repository, AnimalMapper mapper, UsuarioRepository usuarioRepository,  CreateAnimalMapper createAnimalMapper) {
 		this.repository = repository;
 		this.mapper = mapper;
 		this.usuarioRepository = usuarioRepository;
 		this.createAnimalMapper = createAnimalMapper;
-		this.cidadeRepository = cidadeRepository;
-		this.especieRepository = especieRepository;
-		
+	
 	}
 
 	public List<AnimalDTO> buscarAnimaisDisponiveis(){
@@ -56,6 +47,19 @@ public class AnimalService  {
 		return mapper.toDTO(animal);
 	}
 
+	
+	public AnimalDTO adotar(Long idAnimal) {
+		Animal animal = repository.findById(idAnimal).get();
+		if(animal == null) {
+			 throw new Error("Animal não encontrado!");
+		}
+		animal.setAdotadoPor(usuarioRepository.getById(UsuarioService.authenticated().getId()));
+		animal.setStatus(StatusEnum.Em_processo);
+ 		animal = repository.saveAndFlush(animal);
+ 		//enviar EMAIL de adoção
+		return mapper.toDTO(animal);
+	}
+	
 	public List<AnimalDTO> pesquisarAnimais(Long idEspecie, Long idCidade, String sexo) {
 		SexoEnum sexoEnum = sexo != null ? SexoEnum.valueOf(sexo) : null;
 	

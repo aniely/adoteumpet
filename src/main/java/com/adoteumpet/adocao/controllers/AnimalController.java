@@ -34,6 +34,12 @@ public class AnimalController {
 			@RequestParam(required = false) String sexo) {
 		return ResponseEntity.ok().body(service.pesquisarAnimais(idEspecie, idCidade, sexo));
 	}
+	
+	@GetMapping("/adotar")
+	public ResponseEntity<AnimalDTO> adotar(@RequestParam Long idAnimal) {
+		return ResponseEntity.ok().body(service.adotar(idAnimal));
+	}
+	
 
 	@PostMapping
 	public ResponseEntity<AnimalDTO> cadastrarAnimal(@RequestBody CreateAnimalDTO animal) {
