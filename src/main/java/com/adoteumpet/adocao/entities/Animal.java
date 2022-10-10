@@ -43,9 +43,7 @@ public class Animal implements Serializable {
 	@Column(name = "data_inclusao", nullable = false)
 	private LocalDateTime dataInclusao;
 	
-	@Column(name = "data_nascimento", nullable = false)
-	private LocalDateTime dataNascimento;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "porte", nullable = false)
 	private PorteEnum porte;
@@ -107,14 +105,6 @@ public class Animal implements Serializable {
 
 	public void setDataInclusao(LocalDateTime dataInclusao) {
 		this.dataInclusao = dataInclusao;
-	}
-
-	public LocalDateTime getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(LocalDateTime dataNascimento) {
-		this.dataNascimento = dataNascimento;
 	}
 
 	public SexoEnum getGenero() {

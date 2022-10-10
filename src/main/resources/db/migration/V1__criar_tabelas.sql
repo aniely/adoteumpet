@@ -59,7 +59,6 @@ CREATE TABLE IF NOT EXISTS tb_animal
     id bigint NOT NULL,
     nome varchar(255) NOT NULL,
     data_inclusao timestamp without time zone,
-    data_nascimento timestamp without time zone,
     porte varchar(255) NOT NULL,
     genero varchar(1) NOT NULL,
     status varchar(255) NOT NULL,
@@ -106,3 +105,19 @@ CREATE SEQUENCE IF NOT EXISTS hibernate_sequence INCREMENT 1  MINVALUE 1  MAXVAL
 
 
 
+INSERT INTO public.tb_especie values (1, 'Gato');
+INSERT INTO public.tb_especie values (2, 'Cachorro');
+
+INSERT INTO public.tb_raca values (1, 'Raça não definida', 1);
+INSERT INTO public.tb_raca values (2, 'Siamês', 1);
+INSERT INTO public.tb_raca values (3, 'Poodle', 2);
+INSERT INTO public.tb_raca values (4, 'Yorkshire', 2);
+INSERT INTO public.tb_raca values (5, 'Raça não definida', 2);
+
+
+INSERT INTO public.tb_estado values (1, 'Rio de Janeiro', 'RJ');
+INSERT INTO public.tb_estado values (2, 'São Paulo', 'SP');
+
+INSERT INTO public.tb_cidade values (1, 'Campos dos Goytacazes', 1);
+INSERT INTO public.tb_cidade values (2, 'São João da Barra', 1);
+INSERT INTO public.tb_cidade values (3, 'Ubatuba', 2);

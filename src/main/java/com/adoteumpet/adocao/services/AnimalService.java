@@ -15,6 +15,7 @@ import com.adoteumpet.adocao.mappers.AnimalMapper;
 import com.adoteumpet.adocao.mappers.CreateAnimalMapper;
 import com.adoteumpet.adocao.repositories.AnimalRepository;
 import com.adoteumpet.adocao.repositories.UsuarioRepository;
+import com.adoteumpet.adocao.senders.QueueSender;
 
 @Service
 public class AnimalService  {
@@ -23,15 +24,16 @@ public class AnimalService  {
  	private  CreateAnimalMapper createAnimalMapper;
 	private  AnimalRepository repository;
 	private  UsuarioRepository usuarioRepository;
-	
+	private QueueSender queueSender;
 
 
 	@Autowired
-	public AnimalService(AnimalRepository repository, AnimalMapper mapper, UsuarioRepository usuarioRepository,  CreateAnimalMapper createAnimalMapper) {
+	public AnimalService(AnimalRepository repository, AnimalMapper mapper, UsuarioRepository usuarioRepository,  CreateAnimalMapper createAnimalMapper, QueueSender queueSender) {
 		this.repository = repository;
 		this.mapper = mapper;
 		this.usuarioRepository = usuarioRepository;
 		this.createAnimalMapper = createAnimalMapper;
+		this.queueSender = queueSender; 
 	
 	}
 
@@ -56,8 +58,11 @@ public class AnimalService  {
 		animal.setAdotadoPor(usuarioRepository.getById(UsuarioService.authenticated().getId()));
 		animal.setStatus(StatusEnum.Em_processo);
  		animal = repository.saveAndFlush(animal);
+ 		
  		//enviar EMAIL de adoção
-		return mapper.toDTO(animal);
+ 		AnimalDTO animalDto = mapper.toDTO(animal); 
+ 		queueSender.send(animalDto);
+		return animalDto;
 	}
 	
 	public List<AnimalDTO> pesquisarAnimais(Long idEspecie, Long idCidade, String sexo) {

@@ -43,7 +43,7 @@ import com.adoteumpet.adocao.repositories.RacaRepository;
         entity.setNome( dto.getNome() );
         entity.setPorte(dto.getPorte());
         entity.setStatus(StatusEnum.Disponível);
-        entity.setDataNascimento(LocalDateTime.now());
+      // entity.setDataNascimento(LocalDateTime.now());
         List<Imagem> imagens = new ArrayList<>();
         for(Imagem img : dto.getImagens()) {
         	img.setAnimal(entity);

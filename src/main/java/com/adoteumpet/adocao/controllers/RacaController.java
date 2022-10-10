@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.adoteumpet.adocao.dtos.CidadeDTO;
 import com.adoteumpet.adocao.dtos.RacaDTO;
 import com.adoteumpet.adocao.services.RacaService;
 
