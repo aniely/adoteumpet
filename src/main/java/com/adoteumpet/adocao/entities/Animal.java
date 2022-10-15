@@ -2,21 +2,17 @@ package com.adoteumpet.adocao.entities;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.adoteumpet.adocao.enums.PorteEnum;
@@ -67,9 +63,7 @@ public class Animal implements Serializable {
 	@Column(name = "descricao", nullable = false)
 	private String descricao;
 	
-	@OneToMany(mappedBy="animal", fetch = FetchType.EAGER)
-	private List<Imagem> imagens = new ArrayList<>();
-
+	 
 	@ManyToOne
 	@JoinColumn(name = "id_cidade", nullable = false)
 	private Cidade cidade;
@@ -154,14 +148,6 @@ public class Animal implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public List<Imagem> getImagens() {
-		return imagens;
-	}
-
-	public void setImagens(List<Imagem> imagens) {
-		this.imagens = imagens;
 	}
 
 	public Cidade getCidade() {

@@ -21,8 +21,15 @@ public interface AnimalMapper {
         nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
     public Animal toEntity(AnimalDTO dto, @MappingTarget Animal entity);
 	
+   // @Mapping(target = "imagens", ignore = true)
 	public AnimalDTO toDTO(Animal entity);
+	
+	  
+
 
     public List<AnimalDTO> toDTOList(List<Animal> entity);
+    
+  
+    
     
 }

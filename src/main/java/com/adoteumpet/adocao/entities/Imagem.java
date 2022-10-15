@@ -1,4 +1,4 @@
-package com.adoteumpet.adocao.entities;
+/*package com.adoteumpet.adocao.entities;
 
 import java.io.Serializable;
 
@@ -71,4 +71,4 @@ public class Imagem implements Serializable {
 	}
 	
 	
-}
+}*/

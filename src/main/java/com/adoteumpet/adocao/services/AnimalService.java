@@ -58,8 +58,6 @@ public class AnimalService  {
 		animal.setAdotadoPor(usuarioRepository.getById(UsuarioService.authenticated().getId()));
 		animal.setStatus(StatusEnum.Em_processo);
  		animal = repository.saveAndFlush(animal);
- 		
- 		//enviar EMAIL de adoção
  		AnimalDTO animalDto = mapper.toDTO(animal); 
  		queueSender.send(animalDto);
 		return animalDto;
@@ -75,7 +73,9 @@ public class AnimalService  {
 			animais = animais.stream().filter(a -> a.getRaca().getEspecie().getId() == idEspecie).collect(Collectors.toList());
 		if (sexoEnum != null)
 			animais = animais.stream().filter(a -> a.getGenero().equals(sexoEnum)).collect(Collectors.toList());
-			 	
+	
+		animais = animais.stream().filter(a -> a.getStatus().equals(StatusEnum.Disponível)).collect(Collectors.toList());
+
 		return mapper.toDTOList(animais);
 	}
 	

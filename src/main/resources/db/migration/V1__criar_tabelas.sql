@@ -78,17 +78,7 @@ CREATE TABLE IF NOT EXISTS tb_animal
 );
 
 
-CREATE TABLE IF NOT EXISTS tb_imagem
-(
-    id bigint NOT NULL,
-    descricao varchar(255) NOT NULL,
-    img bytea NOT NULL,
-   	id_animal bigint NOT NULL,
-	
-    CONSTRAINT tb_imagem_pkey PRIMARY KEY (id),
-	CONSTRAINT tb_imagem_tb_animal_fkey FOREIGN KEY (id_animal) REFERENCES tb_animal (id)
-
-);
+ 
 
 
 CREATE SEQUENCE IF NOT EXISTS tb_especie INCREMENT 1 START 3 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1; 

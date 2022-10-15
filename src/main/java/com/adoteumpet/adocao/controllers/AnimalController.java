@@ -35,8 +35,8 @@ public class AnimalController {
 		return ResponseEntity.ok().body(service.pesquisarAnimais(idEspecie, idCidade, sexo));
 	}
 	
-	@GetMapping("/adotar")
-	public ResponseEntity<AnimalDTO> adotar(@RequestParam Long idAnimal) {
+	@PostMapping("/adotar")
+	public ResponseEntity<AnimalDTO> adotar(@RequestBody Long idAnimal) {
 		return ResponseEntity.ok().body(service.adotar(idAnimal));
 	}
 	
@@ -45,4 +45,6 @@ public class AnimalController {
 	public ResponseEntity<AnimalDTO> cadastrarAnimal(@RequestBody CreateAnimalDTO animal) {
 		return ResponseEntity.ok().body(service.cadastrar(animal));
 	}
+	
+		
 }
